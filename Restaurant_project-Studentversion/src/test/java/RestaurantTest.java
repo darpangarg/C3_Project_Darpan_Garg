@@ -82,5 +82,22 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //<<<<<<<<<<<<<<<<<<<<TDD - Total Cost of Order >>>>>>>>>>>>>>>>>>
+    @Test
+    public void total_cost_of_order_to_be_sum_of_two_items_selected() {
+        List<String> selectedMenuItems = new ArrayList<String>();
+        selectedMenuItems.add(restaurant.getMenu().get(0).getName());
+        selectedMenuItems.add(restaurant.getMenu().get(1).getName());
+        int testTotalCost = restaurant.totalCostOfOrder(selectedMenuItems);
+        assertEquals(388,testTotalCost);
+    }
+
+    @Test
+    public void total_cost_of_order_to_be_zero_if_no_item_selected() {
+        List<String> selectedMenuItems = new ArrayList<String>();
+        int testTotalCost = restaurant.totalCostOfOrder(selectedMenuItems);
+        assertEquals(0,testTotalCost);
+    }
+    //<<<<<<<<<<<<<<<<<<<<TDD - Total Cost of Order >>>>>>>>>>>>>>>>>>
 
 }
